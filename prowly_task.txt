@@ -1,4 +1,4 @@
--- Test scenario #1: Searching for "prowly" on google.com, filtering by content category (everything, video, news, etc.)
+-- TEST SCENARIO #1: Searching for "prowly" on google.com, filtering by content category (everything, video, news, etc.) --
 
 ===
 
@@ -29,7 +29,8 @@ TC2: Test "Videos" filter
 Test data: 
 - search input: "prowly"
 
-Description: Verifies that after searching for search input and applying the video filter, a page containing only results related to the search input is shown and that the resulting entries contain embedded videos
+Description: Verifies that after searching for search input and applying the video filter, a page containing only results related 
+to the search input is shown and that the resulting entries contain embedded videos
 
 Satisfies requirement: <some_requirement>
 
@@ -55,7 +56,8 @@ TC3: Test "Past 24 hours" filter
 Test data: 
 - search input: "prowly"
 
-Description: Verifies that after searching for the search input and applying the "Past 24 hours" filter, only relevant results from the past 24 hours are shown
+Description: Verifies that after searching for the search input and applying the "Past 24 hours" filter, only relevant results from 
+the past 24 hours are shown
 
 Satisfies requirement: <some_requirement>
 
@@ -68,7 +70,7 @@ Preconditions: https://www.google.com/?hl=en is open
 4. Click on "Past 24 hours" in the dropdown
 5. Verify that every entry (search result) on the page is related to the search input (i.e. that the search input appears in
 any part of the entry: title, description etc.)
-6. Verify that every entry (search result) on the page contains "x hours ago", where x can be any number between 1 and 23 (included) 
+6. Verify that every entry (search result) on the page contains "x hours ago", where x can be any integer between 1 and 23 (included) 
 
 / Expected results
 1. Page with results is loaded
@@ -76,4 +78,119 @@ any part of the entry: title, description etc.)
 3. "Any time" dropdown is successfully expanded
 4. "Past 24 hours" selected successfully, page with search results is loaded
 5. Every entry (search result) on the page is related to the search input
-6. Every entry (search result) on the page contains "x hours ago", where x is a number between 1 and 23 (included)
+6. Every entry (search result) on the page contains "x hours ago", where x is an integer between 1 and 23 (included)
+
+-- TEST SCENARIO #2: Searching "prowly" on google.com with filtering by date. --
+
+===
+
+TC1: Test valid date range until today's date (including)
+
+Test data: 
+- search input: "prowly"
+
+Description: Verifies that after searching for the search input within a valid data range ending with today's date, only relevant results 
+from the specified range are shown (including from today's date)
+
+Satisfies requirement: <some_requirement>
+
+Preconditions: https://www.google.com/?hl=en is open
+
+/ Test steps:
+1. Enter the search input into the search field and press "Enter"	
+2. Click the "Tools" button
+3. Expand the "Any time" dropdown
+4. Click on "Custom range..." in the dropdown
+5. Click on the "From" field and select the day one week earlier than today's date in the calendar
+6. Click on the "To" field and select today's date in the calendar
+7. Click "Go"
+8. Verify that every entry (search result) on the page is related to the search input (i.e. that the search input appears in
+any part of the entry: title, description etc.)
+9. Verify that every entry (search result) on the page contains "x days ago", where x can be any integer between 1 and 7 (included) 
+OR "y hours ago", where y can be any integer between 1 and 23 (included)
+
+/ Expected results
+1. Page with results is loaded
+2. "Tools" button is highlighted, "Any time" and "All results" dropdowns are shown
+3. "Any time" dropdown is successfully expanded
+4. A modal window is shown, containing "From" and "To" fields, a calendar and "Go" button
+5. "From" field is filled with the selected date in format month/day/year
+6. "To" field is filled with the today's date in format month/day/year
+7. Modal is closed and the page with results is loaded
+8. Every entry (search result) on the page is related to the search input
+9. Every entry (search result) on the page contains "x days ago", where x is an integer between 1 and 7 (included) OR "y hours ago", 
+where y is an integer between 1 and 23 (included)
+
+===
+
+TC2: Test reversed field input - "From" today's date "To" past date
+
+Test data: 
+- search input: "prowly"
+
+Description: Verifies that after searching for the search input within a reversed data range ("From" future date "To" past date), the 
+dates are reversed to correct order. Only relevant results from the specified (corrected) range should be shown.
+
+Satisfies requirement: <some_requirement>
+
+Preconditions: https://www.google.com/?hl=en is open
+
+/ Test steps:
+1. Enter the search input into the search field and press "Enter"	
+2. Click the "Tools" button
+3. Expand the "Any time" dropdown
+4. Click on "Custom range..." in the dropdown
+5. Click on the "From" field and select today's date in the calendar
+6. Click on the "To" field and select the day one week earlier than today's date in the calendar
+7. Click "Go"
+8. Verify that the dates in the dropdown are shown in the correct order (<past date> - <today's date>)
+9. Verify that every entry (search result) on the page is related to the search input (i.e. that the search input appears in
+any part of the entry: title, description etc.)
+10. Verify that every entry (search result) on the page contains "x days ago", where x can be any integer between 1 and 7 (included) 
+OR "y hours ago", where y can be any integer between 1 and 23 (included)
+
+/ Expected results
+1. Page with results is loaded
+2. "Tools" button is highlighted, "Any time" and "All results" dropdowns are shown
+3. "Any time" dropdown is successfully expanded
+4. A modal window is shown, containing "From" and "To" fields, a calendar and "Go" button
+5. "From" field is filled with today's date in format month/day/year
+6. "To" field is filled with the selected date in format month/day/year
+7. Modal is closed and the page with results is loaded
+8. Dates in the dropdown are show in the correct order
+9. Every entry (search result) on the page is related to the search input
+10. Every entry (search result) on the page contains "x days ago", where x is an integer between 1 and 7 (included) OR "y hours ago", 
+where y is an integer between 1 and 23 (included)
+
+===
+
+TC3: Test future dates selection is disabled in the calendar
+
+Test data: 
+- search input: "prowly"
+
+Description: Verifies that selecting a future date by clicking on the calendar in the custom date range modal is not possible.
+
+Satisfies requirement: <some_requirement>
+
+Preconditions: https://www.google.com/?hl=en is open
+
+/ Test steps:
+1. Enter the search input into the search field and press "Enter"	
+2. Click the "Tools" button
+3. Expand the "Any time" dropdown
+4. Click on "Custom range..." in the dropdown
+5. Click on the "From" field and then on tomorrow's date
+6. Click on the "To" field and then on tomorrow's date
+7. Click on the "From" field and then on one week from today's date
+8. Click on the "To" field and then on one week from today's date
+
+/ Expected results
+1. Page with results is loaded
+2. "Tools" button is highlighted, "Any time" and "All results" dropdowns are shown
+3. "Any time" dropdown is successfully expanded
+4. A modal window is shown, containing "From" and "To" fields, a calendar and "Go" button
+5. The date is not clickable and no date is added to the "From" field
+6. The date is not clickable and no date is added to the "To" field
+7. The date is not clickable and no date is added to the "From" field
+8. The date is not clickable and no date is added to the "To" field
