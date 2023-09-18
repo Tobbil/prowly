@@ -115,7 +115,7 @@ OR "y hours ago", where y can be any integer between 1 and 23 (included)
 3. "Any time" dropdown is successfully expanded
 4. A modal window is shown, containing "From" and "To" fields, a calendar and "Go" button
 5. "From" field is filled with the selected date in format month/day/year
-6. "To" field is filled with the today's date in format month/day/year
+6. "To" field is filled with today's date in format month/day/year
 7. Modal is closed and the page with results is loaded
 8. Every entry (search result) on the page is related to the search input
 9. Every entry (search result) on the page contains "x days ago", where x is an integer between 1 and 7 (included) OR "y hours ago", 
