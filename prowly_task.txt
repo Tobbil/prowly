@@ -1,0 +1,79 @@
+-- Test scenario #1: Searching for "prowly" on google.com, filtering by content category (everything, video, news, etc.)
+
+===
+
+TC1: Test unfiltered basic search
+
+Test data: 
+- search input: "prowly"
+
+Description: Verifies that search for search input returns only relevant webpages
+
+Satisfies requirement: <some_requirement>
+
+Preconditions: https://www.google.com/?hl=en is open
+
+/ Test steps:
+1. Enter search input into the search field and press "Enter"
+2. Verify that every entry (search result) on the page is related to the search input (i.e. that the search input appears in
+any part of the entry: title, description etc.)
+
+/ Expected results:
+1. Page with results is loaded
+2. Every entry (search result) on the page is related to the search input
+
+===
+
+TC2: Test "Videos" filter
+
+Test data: 
+- search input: "prowly"
+
+Description: Verifies that after searching for search input and applying the video filter, a page containing only results related to the search input is shown and that the resulting entries contain embedded videos
+
+Satisfies requirement: <some_requirement>
+
+Preconditions: https://www.google.com/?hl=en is open
+
+/ Test steps:
+1. Enter the search input into the search field and press "Enter"	
+2. Click on "Videos" in the filter tab					   
+3. Verify that every entry (search result) on the page is related to the search input (i.e. that the search input appears in
+any part of the entry: title, description etc.)
+4. Verify that every entry (search result) on the page contains an embedded video
+
+/ Expected results
+1. Page with results is loaded
+2. Videos filter is applied ("Videos" in the filter tab is highlighted)
+3. Every entry (search result) on the page is related to the search input
+4. Every entry (search result) on the page contains an embedded video
+
+===
+
+TC3: Test "Past 24 hours" filter
+
+Test data: 
+- search input: "prowly"
+
+Description: Verifies that after searching for the search input and applying the "Past 24 hours" filter, only relevant results from the past 24 hours are shown
+
+Satisfies requirement: <some_requirement>
+
+Preconditions: https://www.google.com/?hl=en is open
+
+/ Test steps:
+1. Enter the search input into the search field and press "Enter"	
+2. Click the "Tools" button
+3. Expand the "Any time" dropdown
+4. Click on "Past 24 hours" in the dropdown
+5. Verify that every entry (search result) on the page is related to the search input (i.e. that the search input appears in
+any part of the entry: title, description etc.)
+6. Verify that every entry (search result) on the page contains "x hours ago", where x can be any number between 1 and 23 (included) 
+
+/ Expected results
+1. Page with results is loaded
+2. "Tools" button is highlighted, "Any time" and "All results" dropdowns are shown
+3. "Any time" dropdown is successfully expanded
+4. "Past 24 hours" selected successfully, page with search results is loaded
+5. Every entry (search result) on the page is related to the search input
+6. Every entry (search result) on the page contains "x hours ago", where x is a number between 1 and 23 (included)
