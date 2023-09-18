@@ -1,4 +1,4 @@
--- TEST SCENARIO #1: Searching for "prowly" on google.com, filtering by content category (everything, video, news, etc.) --
+-- TEST SCENARIO #1: Searching on google.com and filtering by content category (everything, video, news, etc.) --
 
 ===
 
@@ -80,7 +80,7 @@ any part of the entry: title, description etc.)
 5. Every entry (search result) on the page is related to the search input
 6. Every entry (search result) on the page contains "x hours ago", where x is an integer between 1 and 23 (included)
 
--- TEST SCENARIO #2: Searching "prowly" on google.com with filtering by date. --
+-- TEST SCENARIO #2: Searching on google.com with filtering by date. --
 
 ===
 
